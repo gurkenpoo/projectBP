@@ -1,3 +1,5 @@
-[gd_scene format=3 uid="uid://gpme8efdo5th"]
+[gd_scene load_steps=2 format=3 uid="uid://gpme8efdo5th"]
 
-[node name="zmb" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://b2jxbr5vrk5ok" path="res://Assets/BlenderOriginal/blend/zmb.blend" id="1_exllu"]
+
+[node name="zmb" instance=ExtResource("1_exllu")]
