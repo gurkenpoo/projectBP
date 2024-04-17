@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c64itdcalexqp"]
+[gd_scene load_steps=14 format=3 uid="uid://c64itdcalexqp"]
 
 [ext_resource type="Script" path="res://Scripts/testingArea.gd" id="1_jermg"]
 [ext_resource type="PackedScene" uid="uid://cut0k0beyn250" path="res://Assets/Objects/player.tscn" id="1_qec2b"]
@@ -24,6 +24,9 @@ background_mode = 2
 sky = SubResource("Sky_pw6oq")
 tonemap_mode = 2
 glow_enabled = true
+volumetric_fog_density = 0.1149
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_7t35g"]
 
@@ -37,6 +40,11 @@ shader_parameter/resolution = Vector2i(320, 240)
 
 [sub_resource type="BoxMesh" id="BoxMesh_43res"]
 material = SubResource("ShaderMaterial_7il0f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1ob4"]
+albedo_color = Color(1, 0.24299, 0.452647, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qhsw7"]
 
 [node name="testingArea" type="Node3D"]
 
@@ -76,7 +84,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_43res")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0949, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0949, 0, -3)
 mesh = SubResource("BoxMesh_43res")
 
 [node name="CSGMesh3D4" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
@@ -84,13 +92,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0101, -0.00225291, 6.21892)
 mesh = SubResource("BoxMesh_43res")
 
 [node name="CSGMesh3D5" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5837, -0.000405058, 11.2263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1763, -0.000405058, -0.477384)
+mesh = SubResource("BoxMesh_43res")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2093, -0.000405058, 2.48578)
+mesh = SubResource("BoxMesh_43res")
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0776, -0.000405058, 5.38309)
+mesh = SubResource("BoxMesh_43res")
+
+[node name="CSGMesh3D10" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0776, -0.000405058, 8.38309)
+mesh = SubResource("BoxMesh_43res")
+
+[node name="CSGMesh3D11" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0776, -0.000405058, 8.38309)
+mesh = SubResource("BoxMesh_43res")
+
+[node name="CSGMesh3D12" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0776, -0.000405058, 13.3831)
 mesh = SubResource("BoxMesh_43res")
 
 [node name="CSGMesh3D6" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.76536, -0.000405058, -13.9099)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7654, -0.000405058, -7.9099)
 mesh = SubResource("BoxMesh_43res")
 
 [node name="CSGMesh3D7" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.17071, -0.000405058, -5.92331)
 mesh = SubResource("BoxMesh_43res")
+material = SubResource("StandardMaterial3D_x1ob4")
+
+[node name="CSGMesh3D13" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
+transform = Transform3D(6, 0, 0, 0, 1.11317, 0, 0, 0, 1, -8.0875, 0.0618429, -18)
+mesh = SubResource("BoxMesh_qhsw7")
+
+[node name="CSGMesh3D14" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
+transform = Transform3D(6, 0, 0, 0, -4.86583e-08, -0.123686, 0, 9, -4.37114e-08, -8.0875, 0.214908, -13)
+mesh = SubResource("BoxMesh_qhsw7")
+
+[node name="CSGMesh3D15" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/CSGMesh3D2"]
+transform = Transform3D(-2.62268e-07, -3.93403e-07, -1, -0.742115, 2.12692e-15, 5.40648e-09, 0, 9, -4.37114e-08, -5.6035, -0.177813, -13.1197)
+mesh = SubResource("BoxMesh_qhsw7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.7932, 3.09637, -13.4961)
+spot_range = 3.70275
+spot_angle = 24.8963
