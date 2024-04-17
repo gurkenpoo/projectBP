@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c64itdcalexqp"]
+[gd_scene load_steps=3 format=3 uid="uid://c64itdcalexqp"]
 
-[ext_resource type="PackedScene" uid="uid://dkyfdw6o70q15" path="res://Assets/BlenderOriginal/glb/enemy_lines.glb" id="1_fr823"]
+[ext_resource type="PackedScene" uid="uid://dw6v7gbcgje1q" path="res://Assets/Objects/cube.tscn" id="1_pglwe"]
+[ext_resource type="PackedScene" uid="uid://gpme8efdo5th" path="res://Assets/Objects/zmb.tscn" id="2_joeix"]
 
 [node name="testingArea" type="Node3D"]
 
-[node name="enemy_lines" parent="." instance=ExtResource("1_fr823")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+[node name="cube" parent="." instance=ExtResource("1_pglwe")]
 
-[editable path="enemy_lines"]
+[node name="zmb" parent="." instance=ExtResource("2_joeix")]
