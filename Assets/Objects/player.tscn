@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://cfqj82opwe78s"]
+[gd_scene load_steps=6 format=3 uid="uid://cut0k0beyn250"]
 
-[node name="player" type="Node3D"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_kuv83"]
+[ext_resource type="Shader" path="res://Shaders/shaderMaterial.gdshader" id="2_wh7tn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0im5t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mv8qd"]
+render_priority = 0
+shader = ExtResource("2_wh7tn")
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1qq1l"]
+material = SubResource("ShaderMaterial_mv8qd")
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09658, 0)
+script = ExtResource("1_kuv83")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_0im5t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_1qq1l")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644, -0.986195)
