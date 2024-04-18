@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://gpme8efdo5th"]
-
-[ext_resource type="PackedScene" uid="uid://bg2yl7yh03war" path="res://Assets/BlenderOriginal/glb/zmb.glb" id="1_fm81s"]
-[ext_resource type="Script" path="res://Scripts/zmb.gd" id="2_u6ra3"]
-
-[node name="zmb" type="Node3D"]
-
-[node name="zmb" parent="." instance=ExtResource("1_fm81s")]
-script = ExtResource("2_u6ra3")

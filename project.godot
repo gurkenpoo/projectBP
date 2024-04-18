@@ -13,6 +13,8 @@ config_version=5
 config/name="projectBP"
 run/main_scene="res://Levels/testingArea.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=30
+run/delta_smoothing=false
 config/icon="res://icon.svg"
 
 [display]
@@ -21,6 +23,7 @@ window/size/viewport_width=720
 window/size/viewport_height=480
 window/size/mode=2
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [file_customization]
 

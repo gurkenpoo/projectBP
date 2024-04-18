@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c64itdcalexqp"]
+[gd_scene load_steps=17 format=3 uid="uid://c64itdcalexqp"]
 
 [ext_resource type="Script" path="res://Scripts/testingArea.gd" id="1_jermg"]
 [ext_resource type="PackedScene" uid="uid://cut0k0beyn250" path="res://Assets/Objects/player.tscn" id="1_qec2b"]
 [ext_resource type="Shader" path="res://Shaders/postProcessPsx.gdshader" id="2_a86me"]
 [ext_resource type="Shader" path="res://Shaders/shaderMaterial.gdshader" id="3_ks6di"]
+[ext_resource type="PackedScene" uid="uid://gpme8efdo5th" path="res://Assets/Objects/zmb.tscn" id="5_apo27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hjne"]
 shader = ExtResource("2_a86me")
@@ -21,14 +22,13 @@ sky_material = SubResource("ProceduralSkyMaterial_fp1fp")
 
 [sub_resource type="Environment" id="Environment_226km"]
 background_mode = 2
+background_energy_multiplier = 0.2
 sky = SubResource("Sky_pw6oq")
 tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_density = 0.1149
 volumetric_fog_emission_energy = 0.0
 volumetric_fog_gi_inject = 0.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_7t35g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7il0f"]
 render_priority = 0
@@ -45,6 +45,14 @@ material = SubResource("ShaderMaterial_7il0f")
 albedo_color = Color(1, 0.24299, 0.452647, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qhsw7"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_xolmf"]
+vertices = PackedVector3Array(-49.5, -0.5, -49.5, -49.5, -0.5, 49.5, 49.5, -0.5, 49.5, 49.5, -0.5, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qj2ol"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85jeh"]
 
 [node name="testingArea" type="Node3D"]
 
@@ -68,15 +76,11 @@ environment = SubResource("Environment_226km")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
 transform = Transform3D(-0.996195, 0.0778625, -0.0391607, 0, 0.449319, 0.893371, 0.0871558, 0.889972, -0.447609, 0, 0, 0)
+light_energy = 0.0
 shadow_enabled = true
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(50, 0, 0, 0, 0.006, 0, 0, 0, 50, 0.0223465, -2.07933, -0.0677662)
-use_collision = true
-mesh = SubResource("BoxMesh_7t35g")
-
 [node name="player" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("1_qec2b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18531, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.73799, 0)
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 8.085, 0, 0, 0, 1, 8.0875, 2, 0)
@@ -140,3 +144,15 @@ mesh = SubResource("BoxMesh_qhsw7")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.7932, 3.09637, -13.4961)
 spot_range = 3.70275
 spot_angle = 24.8963
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport/Node3D"]
+navigation_mesh = SubResource("NavigationMesh_xolmf")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="SubViewportContainer/SubViewport/Node3D/NavigationRegion3D"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_qj2ol")
+material = SubResource("StandardMaterial3D_85jeh")
+
+[node name="zmb" parent="." instance=ExtResource("5_apo27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20113, 22.3875)
