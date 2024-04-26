@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cut0k0beyn250" path="res://Assets/Objects/player.tscn" id="1_qec2b"]
 [ext_resource type="Shader" path="res://Shaders/postProcessPsx.gdshader" id="2_a86me"]
 [ext_resource type="Shader" path="res://Shaders/shaderMaterial.gdshader" id="3_ks6di"]
-[ext_resource type="PackedScene" uid="uid://gpme8efdo5th" path="res://Assets/Objects/zmb.tscn" id="5_apo27"]
+[ext_resource type="PackedScene" uid="uid://cr1kedd2il21x" path="res://Assets/Objects/enemy_test.tscn" id="5_ai5wd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hjne"]
 shader = ExtResource("2_a86me")
@@ -22,7 +22,7 @@ sky_material = SubResource("ProceduralSkyMaterial_fp1fp")
 
 [sub_resource type="Environment" id="Environment_226km"]
 background_mode = 2
-background_energy_multiplier = 0.2
+background_energy_multiplier = 0.4
 sky = SubResource("Sky_pw6oq")
 tonemap_mode = 2
 glow_enabled = true
@@ -154,5 +154,11 @@ use_collision = true
 mesh = SubResource("PlaneMesh_qj2ol")
 material = SubResource("StandardMaterial3D_85jeh")
 
-[node name="zmb" parent="." instance=ExtResource("5_apo27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20113, 22.3875)
+[node name="enemy" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("5_ai5wd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.81032, 3, 5.81385)
+
+[node name="enemy2" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("5_ai5wd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8237, 3, 15.9927)
+
+[node name="enemy3" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("5_ai5wd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19341, 3, 19.3089)

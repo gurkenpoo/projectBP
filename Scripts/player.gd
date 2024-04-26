@@ -11,6 +11,7 @@ var gravity: float = 9.81
 func _ready():
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
